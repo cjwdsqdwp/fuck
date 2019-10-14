@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>真心话大冒险</title>
+	<style type="text/css">
+		#k1
+		{
+            width: 200px;
+            height: 100px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+		}
+		#k2
+		{
+			width: 50px;
+			height: 20px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-top: 10px;
+            background: none;
+            font-size: 15px;
+            border: none;
+            color: #e61717;
+		}
+		#k31
+		{
+			display: flex;
+			flex-wrap: wrap;
+			width: 160px;
+			height: 80px;
+			border: 1px solid black;
+			margin-bottom: 10px;
+			margin-left: 10px;
+			text-align: left;
+			padding: 5px 5px;
+			font-size: 13px;
+			border-radius: 15px;
+			color: #177111;
+			margin-right: 10px;
+		}
+		#k32
+		{
+			display: flex;
+			flex-wrap: wrap;
+			width: 160px;
+			height: 80px;
+			border: 1px solid black;
+			margin-bottom: 10px;
+			margin-left: 10px;
+			text-align: left;
+			padding: 5px 5px;
+			font-size: 13px;
+			border-radius: 15px;
+			color: #177111;
+			margin-right: 10px;
+		}
+		#k33
+		{
+			display: flex;
+			flex-wrap: wrap;
+			width: 160px;
+			height: 80px;
+			border: 1px solid black;
+			margin-bottom: 10px;
+			margin-left: 10px;
+			text-align: left;
+			padding: 5px 5px;
+			font-size: 13px;
+			border-radius: 15px;
+			color: #177111;
+			margin-right: 10px;
+		}
+		#k4
+		{
+			width: 340px;
+			height: 200px;
+			border:1px solid black;
+			font-size: 16px;
+			color: #aa1ed5;
+			text-align: left;
+			margin-top: 30px;
+			margin-left: 4px;
+			background: none;
+			padding: 4px;
+			resize: none;
+		}
+		#button1
+		{
+			margin-top: 10px;
+			margin-right: 10px;
+			background-color: #5da5e6;
+			color: #ffffff;
+			border: none;
+			width: 60px;
+			height: 30px;
+		}
+		#button2
+		{
+			margin-top: 10px;
+			margin-right: 10px;
+			background-color: #5da5e6;
+			color: #ffffff;
+			border: none;
+			width: 60px;
+			height: 30px;
+		}
+		#layout
+		{
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+		}
+	</style>
+	<script type="text/javascript">
+		function start()
+		{
+           document.getElementById("k32").innerHTML = document.getElementById("k4").value;
+           document.getElementById("k4").value = " ";
+           answer();
+		}
+		var number1 = 1;
+		var number2 = 1;
+		function choice()
+		{
+			reload();
+            number1 = Math.random()*5;
+            if (number1<=1 && number1>=0) {
+            	document.getElementById("k31").innerHTML = "你有喜欢的人吗？是谁呢？为什么喜欢呢？";
+
+            }
+            if (number1>1 && number1<=2) {
+            	document.getElementById("k31").innerHTML = "你希望thd在下一次csdn上课时女装吗？如果希望，请问为什么？";
+
+            }
+            if (number1>2 && number1<=3) {
+            	document.getElementById("k31").innerHTML = "给你一天什么都能做的假期，你想要做什么";
+
+            }
+            if (number1>3 && number1<=4) {
+            	document.getElementById("k31").innerHTML = "如果有一天你恰好撞见你喜欢的人正对你的舍友表白，你会怎么做？";
+
+            }
+            if (number1>4 && number1<=5) {
+            	document.getElementById("k31").innerHTML = "大冒险！请你现在站起来大喊三声“我是猪！” 不喊也没关系，也不会怎么样。";
+
+            }
+		}
+		function answer()
+		{
+			number2 = Math.random()*5;
+			if (number2<=1 && number2>=0) {
+				document.getElementById("k33").innerHTML = "感谢你的回答！期待你的下次到来";
+			}
+			if (number2<=2 && number2>1) {
+				document.getElementById("k33").innerHTML = "再来一次，看性感hd在线女装";
+			}
+			if (number2<=3 && number2>2) {
+				document.getElementById("k33").innerHTML = "emmmmm";
+			}
+			if (number2<=4 && number2>3) {
+				document.getElementById("k33").innerHTML = "好的，我知道了，好的，你可以滚了 （暴躁）";
+			}
+			if (number2<=5 && number2>4) {
+				document.getElementById("k33").innerHTML = "23333333333";
+			}
+		}
+		function reload()
+		{
+			document.getElementById("k33").innerHTML = " ";
+			document.getElementById("k31").innerHTML = "你好";
+			document.getElementById("k32").innerHTML = " ";
+		}
+	</script>
+</head>
+   
+<body style="text-align: center;background: url(beijing.jpg);background-size: 100% 170%;background-repeat: no-repeat;">
+<div class="layout">
+	<div style="width: 100%">
+		<h4>欢迎来到真心话大冒险，请在下方开始你的操作</h4>
+	</div>
+	<div style="width: 100%">
+		<div style="float: left;">
+           <div id="k31">你好</div>
+        </div>
+	</div>
+	<div style="float: right;">
+		<div id="k32"></div>
+	</div>
+	<div style="width: 100%">
+		<div style="float: left;">
+           <div id="k33"></div>
+        </div>
+	</div>
+	<div style="float: left;">
+		<textarea id="k4" placeholder="请输入你的答案"></textarea>
+	</div>
+	<div>
+		<div style="float: left;">
+   	       <input type="text" name="输入框" placeholder="主题" id="k2">
+        </div>
+		<div style="float: right;">	
+				<button onclick="start()" id="button1">确定</button>
+        </div>
+        <div style="float: right;">
+			<button id="button2" onclick="choice()">请选题</button>
+	    </div>
+	</div>
+</div>
+	
+</body>
+ 
+</html>
