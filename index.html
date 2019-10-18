@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>真心话大冒险</title>
+	<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js">
+    </script>
+	<style type="text/css">
+		#k1
+		{
+            width: 200px;
+            height: 100px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+		}
+		#k2
+		{
+			width: 50px;
+			height: 20px;
+            margin-bottom: 10px;
+            margin-left: 10px;
+            margin-top: 10px;
+            background: none;
+            font-size: 15px;
+            border: none;
+            color: #e61717;
+		}
+		#k31
+		{
+			display: flex;
+			flex-wrap: wrap;
+			width: 460px;
+			height: 280px;
+			border: 1px solid black;
+			margin-bottom: 10px;
+			margin-left: 10px;
+			text-align: left;
+			padding: 5px 5px;
+			font-size: 43px;
+			border-radius: 15px;
+			color: #177111;
+			margin-right: 10px;
+		}
+		#k32
+		{
+			width: 460px;
+			height: 280px;
+			border: 1px solid black;
+			margin-bottom: 10px;
+			margin-left: 10px;
+			text-align: left;
+			padding: 5px 5px;
+			font-size: 43px;
+			border-radius: 15px;
+			color: #177111;
+			margin-right: 10px;
+		}
+		#k33
+		{
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: row;
+			width: 460px;
+			height: 280px;
+			border: 1px solid black;
+			margin-bottom: 10px;
+			margin-left: 10px;
+			text-align: left;
+			padding: 5px 5px;
+			font-size: 43px;
+			border-radius: 15px;
+			color: #177111;
+			margin-right: 10px;
+		}
+		#k4
+		{
+			width: 920px;
+			height: 520px;
+			border:1px solid black;
+			font-size: 48px;
+			color: #aa1ed5;
+			text-align: left;
+			margin-top: 50px;
+			margin-left: 8px;
+			background: none;
+			padding: 4px;
+			resize: none;
+			padding-top: 8px;
+			padding-left: 8px;
+		}
+		#button1
+		{
+			margin-top: 10px;
+			margin-right: 10px;
+			background-color: #5da5e6;
+			color: #ffffff;
+			border: none;
+			width: 160px;
+			height: 80px;
+			font-size: 36px;
+		}
+		#button2
+		{
+			margin-top: 10px;
+			margin-right: 10px;
+			background-color: #5da5e6;
+			color: #ffffff;
+			border: none;
+			width: 160px;
+			height: 80px;
+			font-size: 36px;
+		}
+		#layout
+		{
+			display: flex;
+			flex-wrap: wrap;
+			flex-direction: column;
+		}
+	</style>
+	<script type="text/javascript">
+		function start()
+		{
+           document.getElementById("k32").innerHTML = document.getElementById("k4").value;
+           document.getElementById("k4").value = " ";
+           answer();
+		}
+		function reload()
+		{
+			document.getElementById("k33").innerHTML = " ";
+			document.getElementById("k31").innerHTML = "你好";
+			document.getElementById("k32").innerHTML = " ";
+		}
+		function choice()
+		{
+			reload();
+			$(function(){
+				$.ajax({
+                    type: "get",
+                    url: "http://123.56.47.215/lyp.json",
+                    choice:{},
+                    success: function(lyp){
+                          const list2 = lyp.choice;
+                          let num = list2.length;
+                          number2 = Math.trunc( Math.random() *num);
+                          document.getElementById("k31").innerHTML = list2[number2].question;
+                    },
+				})})}
+		function answer()
+		{
+			$(function(){
+				$.ajax({
+                    type: "get",
+                    url: "http://123.56.47.215/lyp.json",
+                    answer:{},
+                    success: function(lyp){
+                          const list1 = lyp.answer;
+                          let num = list1.length;
+                          number1 = Math.trunc( Math.random() *num);
+                          document.getElementById("k33").innerHTML = list1[number1].answer1;
+                    },
+				})})}
+	</script>
+</head>
+   
+<body style="text-align: center;background: url(beijing.jpg);background-size: 100% 160%;background-repeat: no-repeat;">
+<div id="layout">
+	<div style="width: 100%;font-size: 56px">
+		<h4>欢迎来到真心话大冒险</h4>
+	</div>
+	<div style="width: 100%">
+		<div style="display: flex;flex-direction: row;">
+           <div id="k31">你好</div>
+        </div>
+	</div>
+	<div style="display: flex;flex-direction: row-reverse;">
+		<div id="k32"></div>
+	</div>
+	<div style="width: 100%">
+		<div style="display: flex;flex-direction: row;">
+           <div id="k33"></div>
+        </div>
+	</div>
+	<div style="display: flex;flex-direction: row;">
+		<textarea id="k4" placeholder="请输入你的答案"></textarea>
+	</div>
+	<div style="display: flex;flex-direction: row-reverse;">
+		<div>	
+				<button onclick="start()" id="button1">确定</button>
+        </div>
+        <div>
+			<button id="button2" onclick="choice()">请选题</button>
+	    </div>
+	</div>
+</div>
+	
+</body>
+ 
+</html>
